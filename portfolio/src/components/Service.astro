@@ -1,3 +1,186 @@
-<div>
-    <h1>Services Page</h1>
-</div>
+---
+// Services Section - Dark Theme to match Hero
+const services = [
+  {
+    title: "Mobile App Development",
+    icon: "ri-layout-masonry-line",
+    description: "Creating intuitive and beautiful mobile interfaces that prioritize user experience and modern aesthetics.",
+  },
+  {
+    title: "Web Development",
+    icon: "ri-code-s-slash-line",
+    description: "Building fast, responsive, and scalable websites using the latest frameworks like Astro and React.",
+  },
+  {
+    title: "UI/UX Designing",
+    icon: "ri-pencil-ruler-2-line",
+    description: "Planning user journeys and wireframes that convert visitors into loyal customers through research.",
+  },
+  {
+    title: "Cloud Solutions",
+    icon: "ri-cloud-line",
+    description: "Integrating secure backend services and cloud infrastructure for seamless app performance.",
+  }
+];
+---
+
+<section id="service" class="services">
+  <div class="container">
+    <div class="header">
+      <span class="sub-title">What I Offer</span>
+      <h2>My <span class="highlight">Services</span></h2>
+      <p class="section-desc">
+        I deliver high-quality digital solutions tailored to your specific needs, 
+        ensuring your project is both functional and beautiful.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service) => (
+        <div class="service-card">
+          <div class="icon-box">
+            <i class={service.icon}></i>
+          </div>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+          <div class="card-footer">
+            <a href="#contact" class="learn-more">Learn More <i class="ri-arrow-right-line"></i></a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background-color: #000; /* Pure black background to match Hero */
+    padding: 100px 0;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .sub-title {
+    color: #ff8c00; /* Theme Orange */
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+  }
+
+  .highlight {
+    color: #ff8c00; /* Main orange accent */
+  }
+
+  .section-desc {
+    color: #ccc; /* Matches hero description text color */
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Grid Styling */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+
+  /* Dark Theme Service Card */
+  .service-card {
+    background: #1a1a1a; /* Matches your stats-card background */
+    border: 1px solid #333;
+    padding: 3rem 2rem;
+    border-radius: 12px; /* Matches your portfolio/stats border radius */
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    border-color: #ff8c00;
+    background: #222;
+    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
+  }
+
+  .icon-box {
+    width: 70px;
+    height: 70px;
+    background: #333;
+    color: #ff8c00; /* Orange icon */
+    border-radius: 50%; /* Circular icons as per social links */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    transition: 0.3s;
+  }
+
+  .service-card:hover .icon-box {
+    background: #ff8c00;
+    color: #fff;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-footer {
+    margin-top: auto;
+  }
+
+  .learn-more {
+    text-decoration: none;
+    color: #ff8c00;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+  }
+
+  .service-card:hover .learn-more {
+    gap: 12px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    h2 { font-size: 2.2rem; }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+</style>
