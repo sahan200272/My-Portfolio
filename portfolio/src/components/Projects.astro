@@ -1,14 +1,13 @@
 ---
 const categories = [
   "All",
-  "Website Design",
-  "App Mobile Design",
-  "App Desktop",
-  "Branding",
+  "Website Apps",
+  "Mobile APPs",
+  "Desktop Apps"
 ];
 
 const projects = [
-  { name: "Name Project", category: "UI/UX", img: "/project1.jpg" },
+  { name: "Breezely", category: "Mobile", img: "/src/assets/Breezely.png" },
   { name: "Name Project", category: "Web", img: "/project2.jpg" },
   { name: "Name Project", category: "Mobile", img: "/project3.jpg" },
   { name: "Name Project", category: "UI/UX", img: "/project4.jpg" },
@@ -19,7 +18,7 @@ const projects = [
 
 <section id="portfolio" class="portfolio">
   <div class="container">
-    <h2>Portfolio</h2>
+    <h2>Projects</h2>
 
     <div class="filter-bar">
       {
@@ -38,7 +37,7 @@ const projects = [
             </div>
             <div class="info">
               <span class="p-name">{project.name}</span>
-              <span class="p-cat">Categories</span>
+              <span class="p-cat">{project.category}</span>
             </div>
           </div>
         ))
