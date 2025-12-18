@@ -1,13 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro'; // Ensure you import your Navbar
 import Hero from '../components/Hero.astro';
+import Service from '../components/Service.astro';
 import About from '../components/About.astro';
 import Projects from '../components/Projects.astro';
-import Service from '../components/Service.astro';
-
 ---
 
 <Layout>
-    <Hero />
-    <Service />
+    <Navbar />
+    <main>
+        <Hero />
+        <Service />
+        <About />
+        <Projects />
+    </main>
 </Layout>
+
+<style>
+  /* Global Smooth Scroll Logic */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
