@@ -1,0 +1,81 @@
+---
+// You can add component logic here if needed
+---
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">
+      <span class="logo-text">LOGO</span>
+    </div>
+    
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#service">Services</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+
+    <a href="#contact" class="btn-hire">Hire Me</a>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    background-color: #000;
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* Only white border below */
+    border-bottom: 2px solid #ffffff; 
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+  }
+
+  .logo-text {
+    color: #ff8c00;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: #ff8c00;
+  }
+
+  .btn-hire {
+    background-color: #ff8c00;
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+
+  .btn-hire:hover {
+    background-color: #e67e00;
+  }
+</style>
