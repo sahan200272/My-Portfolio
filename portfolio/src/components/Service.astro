@@ -1,51 +1,46 @@
 ---
-// Services Section - Dark Theme to match Hero
-const services = [
+const capabilities = [
   {
-    title: "Mobile App Development",
-    icon: "ri-layout-masonry-line",
-    description: "Creating intuitive and beautiful mobile interfaces that prioritize user experience and modern aesthetics.",
+    title: "Backend & Microservices",
+    icon: "ri-server-line",
+    description: "Designing decoupled, event-driven architectures with Spring Boot and Node.js. Establishing stateless JWT security, database boundaries, and fault-tolerant communication.",
   },
   {
-    title: "Web Development",
-    icon: "ri-code-s-slash-line",
-    description: "Building fast, responsive, and scalable websites using the latest frameworks like Astro and React.",
+    title: "Full-Stack Web Engineering",
+    icon: "ri-window-line",
+    description: "Building responsive, accessible web applications using React, Next.js, and Astro with strict typing in TypeScript and optimized asset delivery.",
   },
   {
-    title: "UI/UX Designing",
-    icon: "ri-pencil-ruler-2-line",
-    description: "Planning user journeys and wireframes that convert visitors into loyal customers through research.",
+    title: "Cross-Platform Mobile",
+    icon: "ri-smartphone-line",
+    description: "Creating fluid mobile experiences with Flutter and Dart, integrating cloud datastores (Firebase), and managing asynchronous application state.",
   },
   {
-    title: "Cloud Solutions",
+    title: "DevOps & Containerization",
     icon: "ri-cloud-line",
-    description: "Integrating secure backend services and cloud infrastructure for seamless app performance.",
+    description: "Containerizing services with multi-stage Docker builds, orchestrating workloads via Kubernetes manifests, and managing CI/CD deployment pipelines.",
   }
 ];
 ---
 
-<section id="service" class="services">
+<section id="service" class="services-section">
   <div class="container">
     <div class="header">
-      <span class="sub-title">What I Offer</span>
-      <h2>My <span class="highlight">Services</span></h2>
+      <span class="sub-title">Engineering Capabilities</span>
+      <h2>Core <span class="highlight">Expertise</span></h2>
       <p class="section-desc">
-        I deliver high-quality digital solutions tailored to your specific needs, 
-        ensuring your project is both functional and beautiful.
+        End-to-end technical execution across systems architecture, application engineering, and infrastructure automation.
       </p>
     </div>
 
     <div class="services-grid">
-      {services.map((service) => (
+      {capabilities.map((item) => (
         <div class="service-card">
           <div class="icon-box">
-            <i class={service.icon}></i>
+            <i class={item.icon}></i>
           </div>
-          <h3>{service.title}</h3>
-          <p>{service.description}</p>
-          <div class="card-footer">
-            <a href="#contact" class="learn-more">Learn More <i class="ri-arrow-right-line"></i></a>
-          </div>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
         </div>
       ))}
     </div>
@@ -53,10 +48,9 @@ const services = [
 </section>
 
 <style>
-  .services {
-    background-color: #000; /* Pure black background to match Hero */
+  .services-section {
+    background: #09090b;
     padding: 100px 0;
-    font-family: 'Inter', system-ui, sans-serif;
   }
 
   .container {
@@ -71,116 +65,81 @@ const services = [
   }
 
   .sub-title {
-    color: #ff8c00; /* Theme Orange */
+    color: var(--accent);
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 0.85rem;
-    letter-spacing: 2px;
+    letter-spacing: 0.1em;
     display: block;
     margin-bottom: 0.5rem;
   }
 
   h2 {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     font-weight: 800;
     color: #ffffff;
     margin-bottom: 1rem;
-    letter-spacing: -1px;
+    letter-spacing: -0.02em;
   }
 
   .highlight {
-    color: #ff8c00; /* Main orange accent */
+    color: var(--accent);
   }
 
   .section-desc {
-    color: #ccc; /* Matches hero description text color */
+    color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
+    font-size: 1.05rem;
   }
 
-  /* Grid Styling */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
   }
 
-  /* Dark Theme Service Card */
   .service-card {
-    background: #1a1a1a; /* Matches your stats-card background */
-    border: 1px solid #333;
-    padding: 3rem 2rem;
-    border-radius: 12px; /* Matches your portfolio/stats border radius */
-    text-align: center;
-    transition: all 0.3s ease;
+    background: #121215;
+    border: 1px solid var(--border-dark);
+    padding: 2.5rem 1.75rem;
+    border-radius: 16px;
+    transition: all 0.25s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 
   .service-card:hover {
-    transform: translateY(-10px);
-    border-color: #ff8c00;
-    background: #222;
-    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
+    transform: translateY(-6px);
+    border-color: rgba(255, 140, 0, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
   }
 
   .icon-box {
-    width: 70px;
-    height: 70px;
-    background: #333;
-    color: #ff8c00; /* Orange icon */
-    border-radius: 50%; /* Circular icons as per social links */
+    width: 54px;
+    height: 54px;
+    background: rgba(255, 140, 0, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(255, 140, 0, 0.2);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    transition: 0.3s;
-  }
-
-  .service-card:hover .icon-box {
-    background: #ff8c00;
-    color: #fff;
   }
 
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
   }
 
   p {
-    color: #ccc;
+    color: var(--text-muted);
     font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .card-footer {
-    margin-top: auto;
-  }
-
-  .learn-more {
-    text-decoration: none;
-    color: #ff8c00;
-    font-weight: bold;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: 0.3s;
-  }
-
-  .service-card:hover .learn-more {
-    gap: 12px;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    h2 { font-size: 2.2rem; }
-    .services-grid { grid-template-columns: 1fr; }
+    line-height: 1.6;
   }
 </style>
