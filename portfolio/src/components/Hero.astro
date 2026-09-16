@@ -1,48 +1,81 @@
 ---
-// Import your image if it's in src/assets/
-// import profileImg from '../assets/profile.png';
+import { Image } from 'astro:assets';
+// Place your profile image in src/assets/profile.jpg (rename to avoid spaces in filenames)
+import ProfilePic from '../assets/My Image.jpg';
 ---
 
 <section class="hero">
-  <div class="container">
+  <div class="hero-container">
     <div class="hero-content">
-      <p class="subtitle">Hi I am</p>
-      <h2 class="name">Sahan Munasingha</h2>
-      <h1 class="title">Software Engineering Undergraduate &<span class="highlight"> Full-Stack Developer</span></h1>
+      <div class="badge-status">
+        <span class="pulse-dot"></span>
+        <span>Available for Software Engineering Roles</span>
+      </div>
 
-      <h3>I build fast, scalable, and user-friendly web and mobile applications using modern technologies</h3>
-      
-      <div class="social-icons">
-        <a href="https://www.instagram.com/sahan__munasingha/" target="_blank"><i class="ri-instagram-line"></i></a>
-        <a href="https://www.linkedin.com/in/sahan-munasingha-26772629b/" target="_blank"><i class="ri-linkedin-box-line"></i></a>
-        <a href="https://www.facebook.com/sahan.munasingha.33" target=""><i class="ri-facebook-line"></i></a>
+      <h1 class="hero-title">
+        Hi, I'm <span class="name">Sahan Munasingha</span>
+      </h1>
+
+      <h2 class="hero-subtitle">
+        Software Engineer & <span class="highlight">Full-Stack Developer</span>
+      </h2>
+
+      <p class="hero-description">
+        Specializing in scalable distributed backends, RESTful microservices, and modern web applications. Focused on engineering resilient systems with Spring Boot, Node.js, and React.
+      </p>
+
+      <div class="social-links">
+        <a href="https://github.com/sahan200272" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="ri-github-fill"></i>
+        </a>
+        <a href="https://linkedin.com/in/sahan-munasingha-26772629b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="ri-linkedin-box-fill"></i>
+        </a>
+        <a href="mailto:contact@sahanmunasingha.dev" aria-label="Email Me">
+          <i class="ri-mail-send-line"></i>
+        </a>
       </div>
 
       <div class="cta-group">
-        <a href="/src/assets/Sahan Munasingha.pdf" download="Sahan_Munasingha_CV" class="btn-secondary">Download CV</a>
+        <a href="#projects" class="btn-primary">
+          <span>Explore Projects</span>
+          <i class="ri-arrow-right-line"></i>
+        </a>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          <i class="ri-file-text-line"></i>
+          <span>Resume (PDF)</span>
+        </a>
       </div>
 
-      <div class="stats-card">
-        <div class="stat-item">
-          <h3>5+</h3>
-          <p>Experiences</p>
+      <div class="stats-container">
+        <div class="stat-card">
+          <span class="stat-number">Full-Stack</span>
+          <span class="stat-label">Web & Mobile</span>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
-          <h3>20+</h3>
-          <p>Project done</p>
+        <div class="stat-card">
+          <span class="stat-number">Microservices</span>
+          <span class="stat-label">Cloud-Native Focus</span>
         </div>
         <div class="stat-divider"></div>
-        <div class="stat-item">
-          <h3>80+</h3>
-          <p>Happy Clients</p>
+        <div class="stat-card">
+          <span class="stat-number">Modern CI/CD</span>
+          <span class="stat-label">Docker & Containerized</span>
         </div>
       </div>
     </div>
 
-    <div class="hero-image">
-      <div class="image-circle">
-        <img src="/src/assets/My Image.jpeg" alt="Sahan Munasingha" />
+    <div class="hero-visual">
+      <div class="image-wrapper">
+        <div class="ambient-glow"></div>
+        <div class="image-frame">
+          <Image 
+            src={ProfilePic} 
+            alt="Sahan Munasingha - Software Engineer" 
+            class="profile-img"
+            loading="eager"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -50,159 +83,283 @@
 
 <style>
   .hero {
-    background-color: #000;
-    color: #fff;
-    padding: 80px 0;
+    background: radial-gradient(circle at top left, #161616, #09090b 70%);
+    color: #f4f4f5;
+    padding: 100px 0 80px 0;
+    position: relative;
     overflow: hidden;
   }
 
-  .container {
+  .hero-container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 3.5rem;
     padding: 0 2rem;
   }
 
   .hero-content {
-    flex: 1;
+    flex: 1.2;
   }
 
-  .subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+  /* Status badge */
+  .badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    background: rgba(255, 140, 0, 0.1);
+    border: 1px solid rgba(255, 140, 0, 0.25);
+    color: #ff9d2e;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
   }
 
-  .name {
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ff8c00;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(255, 140, 0, 0.7);
+    animation: pulse 1.8s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 140, 0, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 140, 0, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 140, 0, 0); }
+  }
+
+  .hero-title {
     font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #a1a1aa;
+    margin: 0 0 0.4rem 0;
   }
 
-  .title {
-    font-size: 4rem;
+  .hero-title .name {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .hero-subtitle {
+    font-size: 3.2rem;
+    line-height: 1.15;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin: 0 0 1.25rem 0;
   }
 
   .highlight {
-    color: #ff8c00; /* Main orange accent */
+    background: linear-gradient(120deg, #ff8c00, #ffb347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .social-icons {
+  .hero-description {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #a1a1aa;
+    max-width: 580px;
+    margin: 0 0 2rem 0;
+  }
+
+  /* Social Icons */
+  .social-links {
     display: flex;
-    gap: 1rem;
+    gap: 0.85rem;
     margin-bottom: 2rem;
   }
 
-  .social-icons a {
-    color: #fff;
-    font-size: 1.5rem;
-    background: #333;
-    width: 40px;
-    height: 40px;
-    display: flex;
+  .social-links a {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    transition: 0.3s;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #18181b;
+    border: 1px solid #27272a;
+    color: #d4d4d8;
+    font-size: 1.25rem;
+    transition: all 0.2s ease-in-out;
   }
 
-  .social-icons a:hover {
+  .social-links a:hover {
     background: #ff8c00;
+    color: #000;
+    border-color: #ff8c00;
+    transform: translateY(-2px);
   }
 
+  /* CTAs */
   .cta-group {
     display: flex;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
   }
 
   .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     background: #ff8c00;
-    color: #fff;
-    padding: 0.8rem 2rem;
-    border-radius: 5px;
+    color: #09090b;
+    font-weight: 600;
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: #ffa029;
+    transform: translateY(-2px);
   }
 
   .btn-secondary {
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 0.8rem 2rem;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-
-  /* Stats Card Styling */
-  .stats-card {
-    background: #1a1a1a;
     display: inline-flex;
-    padding: 1.5rem 2rem;
-    border-radius: 12px;
-    gap: 2rem;
     align-items: center;
+    gap: 0.5rem;
+    background: #18181b;
+    color: #f4f4f5;
+    border: 1px solid #27272a;
+    font-weight: 500;
+    padding: 0.8rem 1.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
   }
 
-  .stat-item h3 {
+  .btn-secondary:hover {
+    background: #27272a;
+    border-color: #3f3f46;
+  }
+
+  /* Stat cards */
+  .stats-container {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(24, 24, 27, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid #27272a;
+    padding: 1rem 1.75rem;
+    border-radius: 14px;
+    gap: 1.75rem;
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .stat-number {
     color: #ff8c00;
-    font-size: 1.5rem;
-    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
   }
 
-  .stat-item p {
-    font-size: 0.8rem;
-    margin: 0;
-    color: #ccc;
+  .stat-label {
+    font-size: 0.78rem;
+    color: #71717a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .stat-divider {
     width: 1px;
-    height: 40px;
-    background: #444;
+    height: 32px;
+    background: #27272a;
   }
 
-  /* Image Styling */
-  .hero-image {
-    flex: 1;
+  /* Image Visual Area */
+  .hero-visual {
+    flex: 0.9;
     display: flex;
-    justify-content: flex-end;
-  }
-
-  .image-circle {
-    width: 450px;
-    height: 450px;
-    background: #ff8c00;
-    border-radius: 50%;
-    overflow: hidden;
+    justify-content: center;
     position: relative;
   }
 
-  .image-circle img {
+  .image-wrapper {
+    position: relative;
+    width: 360px;
+    height: 440px;
+  }
+
+  .ambient-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0) 70%);
+    filter: blur(40px);
+    z-index: 1;
+  }
+
+  .image-frame {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #18181b;
+  }
+
+  .profile-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(100%); /* Matches the B&W photo look */
+    filter: grayscale(10%);
+    transition: transform 0.4s ease;
   }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .container {
+  .image-frame:hover .profile-img {
+    transform: scale(1.03);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 968px) {
+    .hero-container {
       flex-direction: column-reverse;
       text-align: center;
+      gap: 3rem;
     }
-    .hero-image {
+
+    .hero-subtitle {
+      font-size: 2.4rem;
+    }
+
+    .hero-description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .social-links,
+    .cta-group {
       justify-content: center;
-      margin-bottom: 2rem;
     }
-    .image-circle {
-      width: 300px;
-      height: 300px;
+
+    .stats-container {
+      width: 100%;
+      justify-content: space-around;
+      gap: 1rem;
+      padding: 1rem;
     }
-    .title {
-      font-size: 2.5rem;
+
+    .image-wrapper {
+      width: 280px;
+      height: 340px;
     }
   }
 </style>
